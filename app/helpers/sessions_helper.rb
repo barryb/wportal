@@ -42,4 +42,12 @@ module SessionsHelper
     end
   end
   
+  def has_right?(rights)
+  	true
+  end
+  
+  def admin_user
+      redirect_to(root_path) unless current_user.admin?
+  end
+  
 end

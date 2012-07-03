@@ -70,7 +70,7 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
+  font-variant: small-caps;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -79,6 +79,11 @@ p {
     color: white;
     text-decoration: none;
   }
+}
+
+#username {
+  color: #88d;
+  margin-left: 15px;
 }
 
 /* footer */

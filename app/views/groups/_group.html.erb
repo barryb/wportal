@@ -1,0 +1,7 @@
+<li>
+  <%= link_to group.name, group %>
+  <% if current_user.admin?  %>
+    | <%= link_to "delete", group, method: :delete,
+                                  data: { confirm: "Are you sure you wish to delete group: #{group.name}?" } %>
+  <% end %>
+</li>

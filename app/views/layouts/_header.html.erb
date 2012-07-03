@@ -1,13 +1,16 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "sample app", root_path, id: "logo" %>
+      <%= link_to "WBT Portal", root_path, id: "logo" %>
       <nav>
+        <span id='username' class='navbar-text'><%= current_user.name %></span>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+          	<% if has_right? :tickets %>
+          		<li><%= link_to "Tickets", '#' %></li>
+          	<% end %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -21,6 +24,9 @@
                 </li>
               </ul>
             </li>
+            <% if current_user.admin? %>
+            <%= render 'layouts/admin_menu' %>
+            <% end %>
           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>

@@ -1,0 +1,10 @@
+<% provide(:title, 'All Groups') %>
+<h1>All Groups</h1>
+
+<%= will_paginate %>
+
+<ul class="groups">
+  <%= render @groups %>
+</ul>
+
+<%= will_paginate %>
